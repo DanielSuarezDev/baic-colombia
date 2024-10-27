@@ -8,6 +8,7 @@ import TestDrive from "@components/TestDrive.astro";
 import Contact from "@components/Contact.astro";
 import Maps from "@components/Maps.astro";
 import CardRedDetail from "@components/CardRedDetail.astro";
+import WhaButton from "@components/WhaButton.astro";
 ---
 
 <Layout title="Baic Nuevo EU5">
@@ -21,9 +22,17 @@ import CardRedDetail from "@components/CardRedDetail.astro";
   <DataSheet />
   <TestDrive />
   <Contact />
+  <WhaButton />
 </Layout>
 
 <style>
+  body{
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
   main {
     margin: auto;
     padding: 1rem;
@@ -32,6 +41,7 @@ import CardRedDetail from "@components/CardRedDetail.astro";
     color: white;
     font-size: 20px;
     line-height: 1.6;
+    
   }
   .astro-a {
     position: absolute;
