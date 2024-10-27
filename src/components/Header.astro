@@ -3,27 +3,107 @@ const logoSrc = '/path/to/logo.png'; // Ruta de tu logo
 ---
 
 <style>
-  header {
-    transition: background-color 0.3s, position 0.3s;
+  .menu-header {
+    background: transparent;
+    z-index: 1000;    
+    color: white;
+    transition: background 0.5s, color 0.5s;
+
+  }
+  .scrolled {
+    background: white;
     z-index: 1000;
+    color: black;
+    transition: background .5s, color .5s;
+
   }
 
   .button:hover{
     border-bottom: 2px solid red;
     transition: border-bottom 0.1s;
   }
+  .animation{
+    animation: slide .3s;
+    right: 0;
+  }
+  @keyframes slide {
+    from {
+      right: -100%;
+    }
+    to {
+      right: 0;
+    }
+  }
+  @media (max-width: 1024px) {
+   .menu-closed{
+    display: none;}
+  .close{
+    animation: slide-close .3s;
+    right: -100%;
+    display: block;
+  } 
+  }
+  @keyframes slide-close {
+    from {
+      right: 0;
+    }
+    to {
+      right: -100%;
+    }
+  }
 </style>
 
-<header id="header" class="w-full p-4 bg-white fixed flex justify-between items-center transition-colors">
-  <img src={"./logo.png"} alt="Logo" class="h-10" />
-  <nav class="hidden md:flex space-x-4">
-    <button class=" py-2 px-4 button">SOBRE NOSOTROS</button>
-    <button class=" py-2 px-4 button">EU5</button>
-    <button class=" py-2 px-4 button">PRUEBA DE MANEJO</button>
-    <button class=" py-2 px-4 button">CONTACTO</button>
+<header id="header" class="w-full fixed flex menu-header  justify-between items-center ">
+  <img src={"./logo.png"} alt="Logo" class="h-10 z-10 mx-4 mt-2 " />
+  <nav id="menu" class="flex lg:relative z-50 menu-closed flex-col lg:flex-row lg:justify-between fixed w-1/2 lg:w-8/12 lg:bg-transparent right-0 h-full top-0 py-20 lg:py-0 p-4  bg-white text-black">
+    <button id="menu-close" class=" absolute lg:hidden top-4 right-4"><img class="w-6" src="./x.png" alt=""></button>
+    <button class="text-start py-6 px-4 button">SOBRE NOSOTROS</button>
+    <button class="text-start py-6 px-4 button">EU5</button>
+    <button class="text-start py-6 px-4 button">PRUEBA DE MANEJO</button>
+    <button class="text-start py-6 px-4 button">CONTACTO</button>
   </nav>
-  <div class="md:hidden">
-    <button id="menu-toggle" class="border border-black py-2 px-4 hover:bg-gray-200">Menú</button>
+  <div class="lg:hidden">
+    <button id="menu-open" class="py-2 px-4"><img src="./menu.png" alt=""></button>
   </div>
 </header>
+<div id="modal" class="fixed hidden z-50 lg:hidden w-full h-full top-0 left-0"style="background: rgba(0, 0, 0, .5)">
+
+</div>
+<script>
+const header = document.getElementById('header');
+const menu = document.getElementById('menu');
+const modal = document.getElementById('modal');
+
+
+console.log(header)
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 400 ) {
+    header.classList.remove('menu-header');
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+    header.classList.add('menu-header');
+  }
+});
+document.getElementById('menu-close').addEventListener('click', () => {
+    menu.classList.add('close',"menu-closed");
+    menu.classList.remove('animation');
+    modal.classList.add('hidden');
+    body?.classList.add('overflow-auto');
+    body?.classList.remove('overflow-hidden');
+
+
+});
+document.getElementById('menu-open').addEventListener('click', () => {
+    menu.classList.add('animation');
+    menu.classList.remove('close',"menu-closed");
+    modal.classList.remove('hidden');
+    modal.classList.add('fixed');
+   const body = document.getElementById('body');
+   body?.classList.add('overflow-hidden');
+   body?.classList.remove('overflow-auto');
+
+});
+</script>
 
