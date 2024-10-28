@@ -1,53 +1,109 @@
-<header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
-  <div class="flex items-center justify-between p-5">
-    <!-- Logo -->
-    <img src="./logo.png" alt="logo" class="mr-10" width="150" height="150" />
+---
+const logoSrc = '/path/to/logo.png'; // Ruta de tu logo
+---
 
-    <!-- Mobile Menu Icon -->
-    <button class="block md:hidden p-2 focus:outline-none" id="menu-toggle">
-      <!-- Icon (You can replace this SVG with your own icon) -->
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="h-6 w-6"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M4 6h16M4 12h16m-7 6h7"></path>
-      </svg>
-    </button>
+<style>
+  .menu-header {
+    background: transparent;
+    z-index: 1000;    
+    color: white;
+    transition: background 0.5s, color 0.5s;
 
-    <!-- Desktop Menu -->
-    <div class="hidden gap-5 items-center md:flex">
-      <a href="/about" class="hover:text-blue-600">SOBRE NOSOTROS</a>
-      <a href="/eu5" class="hover:text-blue-600">EU5</a>
-      <a href="/test" class="hover:text-blue-600">PRUEBA DE MANEJO</a>
-      <a href="/contact" class="hover:text-blue-600">CONTACTO</a>
-    </div>
-  </div>
+  }
+  .scrolled {
+    background: white;
+    z-index: 1000;
+    color: black;
+    transition: background .5s, color .5s;
 
-  <!-- Mobile Menu (Initially hidden) -->
-  <div
-    class="hidden md:hidden flex-col gap-3 items-center p-5"
-    id="mobile-menu"
-  >
-    <a href="/about" class="hover:text-blue-600">SOBRE NOSOTROS</a>
-    <a href="/eu5" class="hover:text-blue-600">EU5</a>
-    <a href="/test" class="hover:text-blue-600">PRUEBA DE MANEJO</a>
-    <a href="/contact" class="hover:text-blue-600">CONTACTO</a>
+  }
+
+  .button:hover{
+    border-bottom: 2px solid red;
+    transition: border-bottom 0.1s;
+  }
+  .animation{
+    animation: slide .3s;
+    right: 0;
+  }
+  @keyframes slide {
+    from {
+      right: -100%;
+    }
+    to {
+      right: 0;
+    }
+  }
+  @media (max-width: 1024px) {
+   .menu-closed{
+    display: none;}
+  .close{
+    animation: slide-close .3s;
+    right: -100%;
+    display: block;
+  } 
+  }
+  @keyframes slide-close {
+    from {
+      right: 0;
+    }
+    to {
+      right: -100%;
+    }
+  }
+</style>
+
+<header id="header" class="w-full fixed flex menu-header  justify-between items-center ">
+  <img src={"./logo.png"} alt="Logo" class="h-10 z-10 mx-4 mt-2 " />
+  <nav id="menu" class="flex lg:relative z-50 menu-closed flex-col lg:flex-row lg:justify-between fixed w-1/2 lg:w-8/12 lg:bg-transparent right-0 h-full top-0 py-20 lg:py-0 p-4  bg-white text-black">
+    <button id="menu-close" class=" absolute lg:hidden top-4 right-4"><img class="w-6" src="./x.png" alt=""></button>
+    <button class="text-start py-6 px-4 button">SOBRE NOSOTROS</button>
+    <button class="text-start py-6 px-4 button">EU5</button>
+    <button class="text-start py-6 px-4 button">PRUEBA DE MANEJO</button>
+    <button class="text-start py-6 px-4 button">CONTACTO</button>
+  </nav>
+  <div class="lg:hidden">
+    <button id="menu-open" class="py-2 px-4"><img src="./menu.png" alt=""></button>
   </div>
 </header>
+<div id="modal" class="fixed hidden z-50 lg:hidden w-full h-full top-0 left-0"style="background: rgba(0, 0, 0, .5)">
 
-<!-- Optional JavaScript for toggle functionality -->
+</div>
 <script>
-  const menuToggle = document.getElementById("menu-toggle");
-  const mobileMenu = document.getElementById("mobile-menu");
+const header = document.getElementById('header');
+const menu = document.getElementById('menu');
+const modal = document.getElementById('modal');
 
-  menuToggle.addEventListener("click", () => {
-    mobileMenu.classList.toggle("hidden");
-  });
+
+console.log(header)
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 400 ) {
+    header.classList.remove('menu-header');
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+    header.classList.add('menu-header');
+  }
+});
+document.getElementById('menu-close').addEventListener('click', () => {
+    menu.classList.add('close',"menu-closed");
+    menu.classList.remove('animation');
+    modal.classList.add('hidden');
+    body?.classList.add('overflow-auto');
+    body?.classList.remove('overflow-hidden');
+
+
+});
+document.getElementById('menu-open').addEventListener('click', () => {
+    menu.classList.add('animation');
+    menu.classList.remove('close',"menu-closed");
+    modal.classList.remove('hidden');
+    modal.classList.add('fixed');
+   const body = document.getElementById('body');
+   body?.classList.add('overflow-hidden');
+   body?.classList.remove('overflow-auto');
+
+});
 </script>
+
