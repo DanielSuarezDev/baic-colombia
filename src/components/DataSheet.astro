@@ -138,29 +138,20 @@ import "animate.css";
   const blackCar = document.getElementById("black-car");
 
   white?.addEventListener("click", () => {
-    //@ts-ignore
-    whiteCar?.style.display = "block";
-    //@ts-ignore
-    redCar?.style.display = "none";
-    //@ts-ignore
-    blackCar?.style.display = "none";
+    if (whiteCar) whiteCar.style.display = "block";
+    if (redCar) redCar.style.display = "none";
+    if (blackCar) blackCar.style.display = "none";
   });
 
   red?.addEventListener("click", () => {
-    //@ts-ignore
-    whiteCar.style.display = "none";
-    //@ts-ignore
-    redCar.style.display = "block";
-    //@ts-ignore
-    blackCar.style.display = "none";
+    if (whiteCar) whiteCar.style.display = "none";
+    if (redCar) redCar.style.display = "block";
+    if (blackCar) blackCar.style.display = "none";
   });
 
   black?.addEventListener("click", () => {
-    //@ts-ignore
-    whiteCar.style.display = "none";
-    //@ts-ignore
-    redCar.style.display = "none";
-    //@ts-ignore
-    blackCar.style.display = "block";
+    if (whiteCar) whiteCar.style.display = "none";
+    if (redCar) redCar.style.display = "none";
+    if (blackCar) blackCar.style.display = "block";
   });
 </script>
