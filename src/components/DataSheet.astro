@@ -133,28 +133,21 @@ import "animate.css";
   </div>
 </section>
 <script>
-  const white = document.getElementById("white");
-  const red = document.getElementById("red");
-  const black = document.getElementById("black");
-  const whiteCar = document.getElementById("white-car");
-  const redCar = document.getElementById("red-car");
-  const blackCar = document.getElementById("black-car");
+const colorButtons = document.querySelectorAll("#white, #red, #black");
+const cars = {
+  white: document.getElementById("white-car"),
+  red: document.getElementById("red-car"),
+  black: document.getElementById("black-car")
+};
 
-  white.addEventListener("click", () => {
-    whiteCar.style.display = "block";
-    redCar.style.display = "none";
-    blackCar.style.display = "none";
+colorButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    // Oculta todos los coches
+    Object.values(cars).forEach(car => car.style.display = "none");
+    
+    // Muestra el coche correspondiente al botón presionado
+    const selectedColor = button.id;
+    cars[selectedColor].style.display = "block";
   });
-
-  red.addEventListener("click", () => {
-    whiteCar.style.display = "none";
-    redCar.style.display = "block";
-    blackCar.style.display = "none";
-  });
-
-  black.addEventListener("click", () => {
-    whiteCar.style.display = "none";
-    redCar.style.display = "none";
-    blackCar.style.display = "block";
-  });
+});
 </script>
