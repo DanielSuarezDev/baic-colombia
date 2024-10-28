@@ -55,12 +55,12 @@ const logoSrc = '/path/to/logo.png'; // Ruta de tu logo
 
 <header id="header" class="w-full fixed flex menu-header  justify-between items-center ">
   <img src={"./logo.png"} alt="Logo" class="h-10 z-10 mx-4 mt-2 " />
-  <nav id="menu" class="flex lg:relative z-50 menu-closed flex-col lg:flex-row lg:justify-between fixed w-1/2 lg:w-8/12 lg:bg-transparent right-0 h-full top-0 py-20 lg:py-0 p-4  bg-white text-black">
+  <nav id="menu" class="flex lg:relative z-50 menu-closed flex-col lg:flex-row lg:justify-between fixed w-2/3 lg:w-8/12 lg:bg-transparent right-0 h-full top-0 py-20 lg:py-0 p-4  bg-white text-black">
     <button id="menu-close" class=" absolute lg:hidden top-4 right-4"><img class="w-6" src="./x.png" alt=""></button>
-    <button class="text-start py-6 px-4 button">SOBRE NOSOTROS</button>
-    <button class="text-start py-6 px-4 button">EU5</button>
-    <button class="text-start py-6 px-4 button">PRUEBA DE MANEJO</button>
-    <button class="text-start py-6 px-4 button">CONTACTO</button>
+    <button class="text-start py-6 px-4 text-sm md:text-xl button">SOBRE NOSOTROS</button>
+    <button class="text-start py-6 px-4 text-sm md:text-xl button">EU5</button>
+    <button class="text-start py-6 px-4 text-sm md:text-xl button">PRUEBA DE MANEJO</button>
+    <button class="text-start py-6 px-4 text-sm md:text-xl button">CONTACTO</button>
   </nav>
   <div class="lg:hidden">
     <button id="menu-open" class="py-2 px-4"><img src="./menu.png" alt=""></button>
@@ -73,34 +73,34 @@ const logoSrc = '/path/to/logo.png'; // Ruta de tu logo
 const header = document.getElementById('header');
 const menu = document.getElementById('menu');
 const modal = document.getElementById('modal');
+const body = document.getElementById('body');
 
 
 console.log(header)
 
 window.addEventListener('scroll', () => {
   if (window.scrollY > 400 ) {
-    header.classList.remove('menu-header');
-    header.classList.add('scrolled');
+    header?.classList.remove('menu-header');
+    header?.classList.add('scrolled');
   } else {
-    header.classList.remove('scrolled');
-    header.classList.add('menu-header');
+    header?.classList.remove('scrolled');
+    header?.classList.add('menu-header');
   }
 });
-document.getElementById('menu-close').addEventListener('click', () => {
-    menu.classList.add('close',"menu-closed");
-    menu.classList.remove('animation');
-    modal.classList.add('hidden');
+document.getElementById('menu-close')?.addEventListener('click', () => {
+    menu?.classList.add('close',"menu-closed");
+    menu?.classList.remove('animation');
+    modal?.classList.add('hidden');
     body?.classList.add('overflow-auto');
     body?.classList.remove('overflow-hidden');
 
 
 });
-document.getElementById('menu-open').addEventListener('click', () => {
-    menu.classList.add('animation');
-    menu.classList.remove('close',"menu-closed");
-    modal.classList.remove('hidden');
-    modal.classList.add('fixed');
-   const body = document.getElementById('body');
+document.getElementById('menu-open')?.addEventListener('click', () => {
+    menu?.classList.add('animation');
+    menu?.classList.remove('close',"menu-closed");
+    modal?.classList.remove('hidden');
+    modal?.classList.add('fixed');
    body?.classList.add('overflow-hidden');
    body?.classList.remove('overflow-auto');
 
