@@ -133,7 +133,7 @@ import "animate.css";
 </section>
 <script>
 const colorButtons = document.querySelectorAll("#white, #red, #black");
-const cars = {
+const cars: { [key: string]: HTMLElement | null } = {
   white: document.getElementById("white-car"),
   red: document.getElementById("red-car"),
   black: document.getElementById("black-car")
@@ -142,11 +142,17 @@ const cars = {
 colorButtons.forEach(button => {
   button.addEventListener("click", () => {
     // Oculta todos los coches
-    Object.values(cars).forEach(car => car.style.display = "none");
+    Object.values(cars).forEach(car => {
+      if (car) {
+        car.style.display = "none";
+      }
+    });
     
     // Muestra el coche correspondiente al botón presionado
     const selectedColor = button.id;
-    cars[selectedColor].style.display = "block";
+    if (cars[selectedColor]) {
+      cars[selectedColor].style.display = "block";
+    }
   });
 });
 </script>
