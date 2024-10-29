@@ -4,9 +4,8 @@
     class="w-11/12 flex lg:flex-row flex-col justify-between items-center mb-20"
   >
     <div class="lg:w-1/3 flex flex-col items-center">
-      <p class="text-4xl font-semibold">PASO 1</p>
-      <p class="text-xl text-center">
-        por favor, complete la siguiente información
+      <p class="text-xl lg:text-3xl text-center">
+       Por favor, complete la siguiente información.
       </p>
     </div>
     <div class="lg:w-2/3">
@@ -27,23 +26,21 @@
           name="gender"
           id=""
         >
-          <option value="">Seleccione su género</option>
-          <option value="Mr">Mr</option>
-          <option value="Ms">Ms</option>
-          <option value="Ds">Ds</option>
-          <option value="Miss">Miss</option>
-          <option value="Other">Other</option>
+          <option disabled value="">Seleccione su género</option>
+          <option value="Mr">Hombre</option>
+          <option value="Ms">Mujer</option>
+          <option value="Ds">Sin respuesta</option>
         </select>
         <input
           class="p-6 bg-gray-100 w-11/12 m-6 rounded-lg outline-none"
           placeholder="Escriba su teléfono"
           type="tel"
         />
-        <div class="w-full flex">
+        <div class="w-full flex items-center">
           <label class="pl-6 py-6 pr-2" for="check"
             >Quiero hacer un Test Drive</label
           >
-          <input class="p-6" id="check" type="checkbox" />
+          <input class="w-4 h-4" id="check" type="checkbox" />
         </div>
       </form>
     </div>
