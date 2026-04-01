@@ -1,37 +1,100 @@
-<section id="data" class="flex items-center justify-center p-10">
-  <div class="max-w-screen-xl flex flex-col lg:flex-row justify-between  items-center">
-    <div class="flex flex-col items-center lg:w-5/12">
-      <h3 class="text-2xl font-bold">EU5</h3>
-      <img src="./red-car.webp" alt="card-red" class="w-full h-full object-cover" />
-      <span class="text-xl lg:text-start text-center py-5 font-light">Fuerte rendimiento energético, inteligencia hacia el futuro </span>
-    </div>
-  
-    <div class="flex flex-col items-center lg:text-start text-center lg:w-5/12">
-      <div class="border-b-2 py-10">
-        <h3 class="text-2xl font-bold">GRAN AUTONOMIA</h3>
-        <p class="text-xl lg:w-9/12">
-          Autonomia de 401 km <br> Con capacidad para generar energía con su sistema de frenado regenerativo
-        </p>
+<section
+  class="py-24 bg-gray-50 dark:bg-slate-900 border-y border-gray-100 dark:border-white/5 transition-colors duration-300"
+>
+  <div class="container mx-auto px-6 md:px-12">
+    <div class="flex flex-col lg:flex-row items-center gap-20">
+      <!-- Left side: Visual -->
+      <div class="lg:w-1/2 relative group">
+        <div
+          class="absolute inset-0 bg-red-500/5 blur-3xl rounded-full scale-110"
+        >
+        </div>
+        <div
+          class="relative z-10 bg-white dark:bg-slate-800 p-8 rounded-[3rem] border border-gray-100 dark:border-white/10 shadow-xl"
+        >
+          <h3
+            class="text-3xl font-black mb-4 font-tomaso text-black dark:text-white uppercase"
+          >
+            EU5 PERFORMANCE
+          </h3>
+          <img
+            src="./red-car.webp"
+            alt="Baic EU5 Red Side"
+            class="w-full h-auto object-contain transform group-hover:scale-105 transition-transform duration-700"
+          />
+          <p
+            class="mt-8 text-xl font-light text-gray-400 dark:text-gray-400 text-center italic"
+          >
+            "Fuerte rendimiento energético, inteligencia hacia el futuro"
+          </p>
+        </div>
       </div>
-  
-      <div class="border-b-2 py-10">
-        <h3 class="text-2xl font-bold">BATERÍA DE ALTO RENDIMIENTO</h3>
-        <p class="text-xl lg:w-9/12">
-          Bateria CATL 151 Wh/kg de nueva generación . carga a 49.6 KWh Cuenta con
-          más de 30 certificaciones internacionales para bridar la máxima
-          seguridad Bateria de litio ternario
-        </p>
-      </div>
-  
-      <div class="border-b-2 py-10">
-        <h3 class="text-2xl font-bold">
-          TECNOLOGÍA INTEGRADA DE MANEJO ELÉCTRICO
-        </h3>
-        <p class="text-xl lg:w-9/12">
-          0~100 km/h con una aceleración de 7,8 s toruqe máximo de 240 N.m y la
-          potencia máxima de 120 kw. Sistema inteligente de manejo de bateria
-          PEU2.0 sistema que mejora el performance y la estabilidad
-        </p>
+
+      <!-- Right side: Specs -->
+      <div class="lg:w-1/2 space-y-12">
+        <div class="group">
+          <div class="flex items-baseline gap-4 mb-4">
+            <span class="text-5xl font-black text-[#EF4444] font-tomaso"
+              >401</span
+            >
+            <span
+              class="text-xl font-bold uppercase tracking-widest text-gray-400"
+              >KM Autonomía</span
+            >
+          </div>
+          <p
+            class="text-lg text-gray-600 dark:text-gray-300 font-light leading-relaxed border-l-2 border-[#EF4444] pl-6 hover:border-black dark:hover:border-white transition-colors"
+          >
+            Con capacidad para generar energía en cada frenado gracias a su
+            sistema de <span class="text-black dark:text-white font-medium"
+              >frenado regenerativo</span
+            > de última generación.
+          </p>
+        </div>
+
+        <div class="group">
+          <div class="flex items-baseline gap-4 mb-4">
+            <span
+              class="text-5xl font-black text-black dark:text-white font-tomaso uppercase"
+              >CATL</span
+            >
+            <span
+              class="text-xl font-bold uppercase tracking-widest text-gray-400"
+              >Batería Ternaria</span
+            >
+          </div>
+          <p
+            class="text-lg text-gray-600 dark:text-gray-300 font-light leading-relaxed border-l-2 border-gray-200 dark:border-white/10 pl-6 group-hover:border-[#EF4444] transition-colors"
+          >
+            Carga de <span class="text-black dark:text-white font-medium"
+              >49.6 KWh</span
+            >. Cuenta con más de 30 certificaciones internacionales para brindar
+            la máxima seguridad ante cualquier impacto o condición.
+          </p>
+        </div>
+
+        <div class="group">
+          <div class="flex items-baseline gap-4 mb-4">
+            <span
+              class="text-5xl font-black text-black dark:text-white font-tomaso"
+              >7.8</span
+            >
+            <span
+              class="text-xl font-bold uppercase tracking-widest text-gray-400"
+              >Seg 0-100 km/h</span
+            >
+          </div>
+          <p
+            class="text-lg text-gray-600 dark:text-gray-300 font-light leading-relaxed border-l-2 border-gray-200 dark:border-white/10 pl-6 group-hover:border-[#EF4444] transition-colors"
+          >
+            Torque máximo de <span
+              class="text-black dark:text-white font-medium">240 N.m</span
+            > y potencia de <span class="text-black dark:text-white font-medium"
+              >120 kw</span
+            >. Sistema inteligente PEU2.0 que optimiza el flujo de energía en
+            tiempo real.
+          </p>
+        </div>
       </div>
     </div>
   </div>
